@@ -12,14 +12,14 @@ setnames(jh_timeseries, "Admin2", "County")
 
 jh_ca <- filter(jh_timeseries, Province_State =="California" & County %in% c("San Francisco", 
                                                                               "San Mateo", 
-                                                                              "Santa Cruz",
+                                                                              "Contra Costa",
                                                                               "Santa Clara",
                                                                               "Marin",
                                                                               "Alameda"))
 
 
 jh_ca_melt <- reshape2::melt(jh_ca, id=c("County"), measure.vars=c("4/15/20","4/16/20","4/17/20","4/18/20","4/19/20","4/20/20","4/21/20",
-                                                        "4/22/20","4/23/20"), variable.name="Date", value.name = "Confirmed")
+                                                        "4/22/20","4/23/20","4/24/20","4/25/20","4/26/20"), variable.name="Date", value.name = "Confirmed")
 jh_ca_melt$Date <- as.Date(jh_ca_melt$Date, format="%m/%d/%y")
 
 
